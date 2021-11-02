@@ -6,9 +6,9 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 # Package meta-data.
-NAME = 'tid-classification-model'
+NAME = 'titanic-classification-model'
 DESCRIPTION = "Example classification model package from Train In Data."
-URL = "https://github.com/kunamneni117/e2e-ml-usecases/tree/main/titanic-disaster-survival"
+URL = "https://github.com/kunamneni117/titanic-disaster-survival-prediction/tree/main/04-production-model-package"
 EMAIL = "venkateshchowdary117@gmail.com"
 AUTHOR = "VENKATESHK"
 REQUIRES_PYTHON = ">=3.6.0"

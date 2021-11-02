@@ -1,8 +1,8 @@
 import typing as t
 from pathlib import Path
-import numpy as np
 
 import joblib
+import numpy as np
 import pandas as pd
 from sklearn.pipeline import Pipeline
 
@@ -14,7 +14,7 @@ def load_dataset(*, file_name: str) -> pd.DataFrame:
     dataframe = pd.read_csv(Path(f"{DATASET_DIR}/{file_name}"))
 
     # rename variables beginning with numbers to avoid syntax errors later
-    transformed = dataframe.replace('?', np.nan)
+    transformed = dataframe.replace("?", np.nan)
     return transformed
 
 

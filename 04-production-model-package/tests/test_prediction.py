@@ -1,5 +1,3 @@
-import numpy as np
-
 from classification_model.predict import make_prediction
 
 
@@ -17,4 +15,4 @@ def test_make_prediction(sample_input_data):
     assert isinstance(int(predictions[0]), int)
     assert result.get("errors") is None
     assert len(predictions) == expected_no_predictions
-    assert int(predictions[0])==expected_first_prediction_value
+    assert int(predictions[0]) == expected_first_prediction_value

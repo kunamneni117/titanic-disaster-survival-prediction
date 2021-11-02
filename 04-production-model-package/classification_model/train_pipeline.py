@@ -1,7 +1,6 @@
 from config.core import config
 from pipeline import survival_pipe
 from processing.data_manager import load_dataset, save_pipeline
-from sklearn.model_selection import train_test_split
 
 
 def run_training() -> None:
@@ -21,7 +20,9 @@ def run_training() -> None:
     # )
 
     # fit model
-    survival_pipe.fit(data[config.model_config.features], data[config.model_config.target])
+    survival_pipe.fit(
+        data[config.model_config.features], data[config.model_config.target]
+    )
 
     # persist trained model
     save_pipeline(pipeline_to_persist=survival_pipe)

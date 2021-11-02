@@ -12,4 +12,4 @@ def test_extract_letter_transformer(sample_input_data):
     subject = transformer.fit_transform(sample_input_data)
 
     # Then
-    assert len(max(subject['Cabin'].astype(str).unique(), key = len))<=4
+    assert len(max(subject["Cabin"].astype(str).unique(), key=len)) <= 4

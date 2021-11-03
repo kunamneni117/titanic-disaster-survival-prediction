@@ -42,7 +42,7 @@ def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional
     return validated_data, errors
 
 
-class HouseDataInputSchema(BaseModel):
+class TitanicDisasterSurvivalDataInputSchema(BaseModel):
     PassengerId: Optional[int]
     Pclass: Optional[int]
     Name: Optional[str]
@@ -53,7 +53,8 @@ class HouseDataInputSchema(BaseModel):
     Ticket: Optional[str]
     Fare: Optional[float]
     Cabin: Optional[str]
+    Embarked: Optional[str]
 
 
 class MultipleHouseDataInputs(BaseModel):
-    inputs: List[HouseDataInputSchema]
+    inputs: List[TitanicDisasterSurvivalDataInputSchema]

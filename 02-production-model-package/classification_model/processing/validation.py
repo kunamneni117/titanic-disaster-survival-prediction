@@ -47,7 +47,7 @@ class TitanicDisasterSurvivalDataInputSchema(BaseModel):
     Pclass: Optional[int]
     Name: Optional[str]
     Sex: Optional[str]
-    Age: Optional[int]
+    Age: Optional[float]
     SibSp: Optional[int]
     Parch: Optional[int]
     Ticket: Optional[str]

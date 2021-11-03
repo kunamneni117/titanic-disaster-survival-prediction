@@ -1,12 +1,16 @@
 from typing import Any, List, Optional
 
+from classification_model.processing.validation import (
+    TitanicDisasterSurvivalDataInputSchema,
+)
 from pydantic import BaseModel
-from classification_model.processing.validation import TitanicDisasterSurvivalDataInputSchema
+
 
 class PredictionResults(BaseModel):
     errors: Optional[Any]
     version: str
     predictions: Optional[List[float]]
+
 
 class MultipleTitanicDisasterSurvivalDataInputs(BaseModel):
     inputs: List[TitanicDisasterSurvivalDataInputSchema]
@@ -18,7 +22,7 @@ class MultipleTitanicDisasterSurvivalDataInputs(BaseModel):
                     {
                         "MSSubClass": 20,
                         "MSZoning": "RH",
-                        "PassengerId" : 892,
+                        "PassengerId": 892,
                         "Pclass": 3,
                         "Name": "Kelly, Mr. James",
                         "Sex": "male",
@@ -28,7 +32,7 @@ class MultipleTitanicDisasterSurvivalDataInputs(BaseModel):
                         "Ticket": "330911",
                         "Fare": "7.8292",
                         "Cabin": None,
-                        "Embarked": "Q"
+                        "Embarked": "Q",
                     }
                 ]
             }

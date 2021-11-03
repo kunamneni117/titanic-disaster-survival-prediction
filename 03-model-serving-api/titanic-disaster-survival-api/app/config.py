@@ -6,8 +6,10 @@ from typing import List, cast
 from loguru import logger
 from pydantic import AnyHttpUrl, BaseSettings
 
+
 class LoggingSettings(BaseSettings):
     LOGGING_LEVEL: int = logging.INFO  # logging levels are type int
+
 
 class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
@@ -29,6 +31,7 @@ class Settings(BaseSettings):
     class Config:
         case_sensitive = True
 
+
 # See: https://loguru.readthedocs.io/en/stable/overview.html#entirely-compatible-with-standard-logging  # noqa
 class InterceptHandler(logging.Handler):
     def emit(self, record: logging.LogRecord) -> None:  # pragma: no cover
@@ -49,6 +52,7 @@ class InterceptHandler(logging.Handler):
             record.getMessage(),
         )
 
+
 def setup_app_logging(config: Settings) -> None:
     """Prepare custom logging for our application."""
 
@@ -61,5 +65,6 @@ def setup_app_logging(config: Settings) -> None:
     logger.configure(
         handlers=[{"sink": sys.stderr, "level": config.logging.LOGGING_LEVEL}]
     )
+
 
 settings = Settings()

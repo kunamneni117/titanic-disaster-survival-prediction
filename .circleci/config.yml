@@ -25,8 +25,8 @@ fetch_data: &fetch_data
     name: Set script permissions and fetch data
     command: |
       source venv/bin/activate
-      chmod +x ./scripts/fetch_kaggle_dataset.sh
-      ./scripts/fetch_kaggle_dataset.sh
+      chmod +x ./02-scripts/fetch_kaggle_dataset.sh
+      ./02-scripts/fetch_kaggle_dataset.sh
 
 jobs:
   section_07_test_app:
@@ -70,3 +70,31 @@ jobs:
           name: Publish model to Gemfury
           command: |
             tox -e publish_model
+
+tags_only: &tags_only
+  filters:
+    branches:
+      ignore: /.*/
+    tags:
+      only: /^.*/
+
+workflows:
+  version: 2
+  section_07:
+    jobs:
+      - section_07_test_app
+      - section_07_deploy_app_to_heroku:
+          requires:
+            - section_07_test_app
+          filters:
+            branches:
+              only:
+                - main
+      # # upload after git tags are created
+      # - section_07_test_and_upload_regression_model:
+      #     <<: *tags_only
+      # - section_08_deploy_app_container_in_heroku:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - main

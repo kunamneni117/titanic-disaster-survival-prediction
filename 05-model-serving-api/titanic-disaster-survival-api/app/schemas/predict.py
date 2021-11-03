@@ -32,7 +32,7 @@ class MultipleTitanicDisasterSurvivalDataInputs(BaseModel):
                         "Ticket": "330911",
                         "Fare": "7.8292",
                         "Cabin": None,
-                        "Embarked": "Q",
+                        "Embarked": "Q"
                     }
                 ]
             }
